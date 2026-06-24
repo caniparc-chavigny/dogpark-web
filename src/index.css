@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=M+PLUS+Rounded+1c:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ════════════════════════════════════════════════════════════
+   Système de thèmes — jetons sémantiques
+   3 thèmes : Sakura 🌸 · Nature 🌿 · Neutre ✨
+   ════════════════════════════════════════════════════════════ */
+
+:root[data-theme='sakura'] {
+  --bg: linear-gradient(170deg, #fff6ef 0%, #ffe6ee 46%, #eaf2ff 100%);
+  --font-display: 'Zen Maru Gothic', system-ui, sans-serif;
+  --font-body: 'M PLUS Rounded 1c', system-ui, sans-serif;
+
+  --text: #5a4650;
+  --text-soft: #ab93a0;
+  --heading: #9c3a5e;
+
+  --accent: #ff8fb3;
+  --accent-hover: #ff6f9e;
+  --accent-contrast: #ffffff;
+  --accent-soft: #fff0f5;
+  --accent-shadow: rgba(255,143,179,0.45);
+
+  --secondary: #7fb8ff;
+  --secondary-contrast: #ffffff;
+  --secondary-text: #2b6cb0;
+  --secondary-shadow: rgba(127,184,255,0.3);
+
+  --card: #ffffff;
+  --card-border: #ffe0ec;
+  --shadow: rgba(255,143,179,0.22);
+
+  --radius-card: 22px;
+
+  --petal-0: #ffc2d6;
+  --petal-1: #ff9ec0;
+  --petal-2: #ffd9e4;
+  --petal-shape: 75% 5% 75% 5%;
+
+  --tooltip-bg: #ffffff;
+  --tooltip-border: #ff8fb3;
+  --tooltip-text: #9c3a5e;
+
+  --hero-emoji: '🌸';
+}
+
+:root,
+:root[data-theme='nature'] {
+  --bg: linear-gradient(170deg, #f3fbf0 0%, #e3f6e0 48%, #d6f0ea 100%);
+  --font-display: 'Zen Maru Gothic', system-ui, sans-serif;
+  --font-body: 'M PLUS Rounded 1c', system-ui, sans-serif;
+
+  --text: #3a4a3a;
+  --text-soft: #8aa48a;
+  --heading: #2e7d46;
+
+  --accent: #4caf6a;
+  --accent-hover: #3b9457;
+  --accent-contrast: #ffffff;
+  --accent-soft: #eef8ef;
+  --accent-shadow: rgba(76,175,106,0.4);
+
+  --secondary: #f4b942;
+  --secondary-contrast: #ffffff;
+  --secondary-text: #9a6b10;
+  --secondary-shadow: rgba(244,185,66,0.3);
+
+  --card: #ffffff;
+  --card-border: #d8efd4;
+  --shadow: rgba(76,175,106,0.2);
+
+  --radius-card: 22px;
+
+  --petal-0: #a7d99a;
+  --petal-1: #7ec47a;
+  --petal-2: #cfeac6;
+  --petal-shape: 0% 50% 0% 50%;
+
+  --tooltip-bg: #ffffff;
+  --tooltip-border: #4caf6a;
+  --tooltip-text: #2e7d46;
+}
+
+:root[data-theme='neutre'] {
+  --bg: #f6f5f3;
+  --font-display: 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  --text: #2b2b2b;
+  --text-soft: #8a8a8a;
+  --heading: #1f1f1f;
+
+  --accent: #2d2d2d;
+  --accent-hover: #000000;
+  --accent-contrast: #ffffff;
+  --accent-soft: #ececec;
+  --accent-shadow: rgba(0,0,0,0.18);
+
+  --secondary: #6b7280;
+  --secondary-contrast: #ffffff;
+  --secondary-text: #374151;
+  --secondary-shadow: rgba(0,0,0,0.12);
+
+  --card: #ffffff;
+  --card-border: #e4e2de;
+  --shadow: rgba(0,0,0,0.08);
+
+  --radius-card: 14px;
+
+  --tooltip-bg: #1f1f1f;
+  --tooltip-border: #1f1f1f;
+  --tooltip-text: #ffffff;
+}
+
+/* ─── Reset ──────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Pas de pétales en mode neutre */
+[data-theme='neutre'] .sakura-field { display: none !important; }
+
+/* ─── Leaflet tooltip ────────────────────────────────────── */
+.leaflet-tooltip {
+  background: var(--tooltip-bg) !important;
+  border: 1.5px solid var(--tooltip-border) !important;
+  color: var(--tooltip-text) !important;
+  font-family: var(--font-body) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  border-radius: 14px !important;
+  padding: 5px 12px !important;
+  box-shadow: 0 4px 14px var(--shadow) !important;
+  max-width: 170px;
+  white-space: normal;
+}
+.leaflet-tooltip::before {
+  border-top-color: var(--tooltip-border) !important;
+}

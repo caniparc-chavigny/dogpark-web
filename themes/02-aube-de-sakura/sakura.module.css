@@ -1,0 +1,40 @@
+/* ─── Champ de particules (pétales / feuilles) ───────────── */
+.field {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.petal {
+  position: absolute;
+  top: -24px;
+  border-radius: var(--petal-shape, 75% 5% 75% 5%);
+  opacity: 0.85;
+  will-change: transform;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.tone0 { background: var(--petal-0, #ffc2d6); }
+.tone1 { background: var(--petal-1, #ff9ec0); }
+.tone2 { background: var(--petal-2, #ffd9e4); }
+
+@keyframes fall {
+  0% {
+    transform: translate(0, -24px) rotate(0deg);
+    opacity: 0;
+  }
+  12% { opacity: 0.9; }
+  90% { opacity: 0.85; }
+  100% {
+    transform: translate(var(--drift), 105vh) rotate(420deg);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .petal { animation: none; display: none; }
+}

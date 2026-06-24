@@ -1,0 +1,298 @@
+/* ─── Base ───────────────────────────────────────────────── */
+.screen {
+  position: fixed;
+  inset: 0;
+  background: #1a2e1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #e8f5e9;
+}
+
+.splash {
+  position: fixed;
+  inset: 0;
+  background: #1a2e1a;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 32px 24px;
+  width: 100%;
+  max-width: 420px;
+}
+
+/* ─── Typographie ────────────────────────────────────────── */
+.emoji  { font-size: 56px; line-height: 1; }
+.title  { font-size: 26px; font-weight: 700; text-align: center; color: #fff; margin: 0; line-height: 1.3; }
+.subtitle { font-size: 16px; color: #cce8cc; text-align: center; margin: 0; }
+.hint   { font-size: 13px; color: #8fb98f; text-align: center; max-width: 300px; line-height: 1.5; margin: 0; }
+.tag    { font-size: 14px; color: #6dbf6d; letter-spacing: 2px; margin: 0; }
+
+/* ─── Boutons ────────────────────────────────────────────── */
+.primaryBtn {
+  background: #6dbf6d;
+  color: #1a2e1a;
+  border: none;
+  border-radius: 50px;
+  padding: 15px 44px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: opacity 0.15s;
+}
+.primaryBtn:hover { opacity: 0.88; }
+
+.outlineBtn {
+  background: transparent;
+  color: #cce8cc;
+  border: 1px solid #4a6a4a;
+  border-radius: 50px;
+  padding: 12px 28px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.textBtn      { background: none; border: none; color: #6a8f6a; font-size: 16px; cursor: pointer; padding: 0; }
+.textBtnGreen { background: none; border: none; color: #6dbf6d; font-size: 16px; font-weight: 700; cursor: pointer; padding: 0; }
+
+/* ─── Langue ─────────────────────────────────────────────── */
+.options { display: flex; flex-direction: column; gap: 12px; width: 100%; }
+.option {
+  background: transparent;
+  border: 2px solid #2a4a2a;
+  border-radius: 14px;
+  padding: 18px;
+  color: #8fb98f;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+.option:hover   { border-color: #4a8a4a; }
+.optionActive   { border-color: #6dbf6d; color: #6dbf6d; background: rgba(109,191,109,0.07); }
+
+/* ─── Consentement ───────────────────────────────────────── */
+.toggleRow  { display: flex; gap: 12px; }
+.toggleBtn  {
+  background: transparent;
+  border: 2px solid #6dbf6d;
+  border-radius: 50px;
+  padding: 13px 26px;
+  color: #6dbf6d;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.toggleActive { background: #6dbf6d; color: #1a2e1a; }
+
+/* ─── Parc fermé ─────────────────────────────────────────── */
+.hoursBox {
+  border: 1px solid #1e3a1e;
+  border-radius: 14px;
+  padding: 18px 24px;
+  width: 100%;
+}
+.hoursRow { display: flex; justify-content: space-between; font-size: 15px; color: #8fb98f; }
+.hoursTime { color: #6dbf6d; font-weight: 600; }
+
+/* ─── Carte ──────────────────────────────────────────────── */
+.mapWrapper {
+  position: fixed;
+  inset: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.mapHeader {
+  position: absolute;
+  top: env(safe-area-inset-top, 16px);
+  left: 0; right: 0;
+  padding: 12px 14px 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  z-index: 1000;
+  pointer-events: none;
+}
+.mapHeader > * { pointer-events: auto; }
+
+.mapPill {
+  background: rgba(10,20,10,0.82);
+  border: none;
+  border-radius: 20px;
+  padding: 8px 14px;
+  color: #cce8cc;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.mapTitleBlock { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+
+.mapTitle {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  text-shadow: 0 1px 4px #000;
+}
+
+.chipCount      { background: rgba(10,20,10,0.8); color: #6dbf6d; font-size: 12px; padding: 2px 10px; border-radius: 12px; }
+.chipConnecting { background: rgba(10,20,10,0.8); color: #c8894d; font-size: 11px; padding: 2px 10px; border-radius: 12px; }
+.chipError      { background: rgba(60,10,10,0.85); color: #e87a6d; font-size: 11px; padding: 3px 10px; border-radius: 12px; text-align: center; max-width: 180px; }
+
+.mapFooter {
+  position: absolute;
+  bottom: env(safe-area-inset-bottom, 20px);
+  left: 0; right: 0;
+  padding: 16px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  z-index: 1000;
+}
+
+.mapToggle {
+  background: rgba(10,20,10,0.85);
+  border: 1.5px solid #6dbf6d;
+  border-radius: 50px;
+  padding: 13px 32px;
+  color: #6dbf6d;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.mapToggleActive { background: #6dbf6d; color: #1a2e1a; }
+
+.noteBtn {
+  background: rgba(10,20,10,0.88);
+  border: 1px solid #4a7a4a;
+  border-radius: 50px;
+  padding: 13px 24px;
+  color: #cce8cc;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: opacity 0.15s;
+}
+.noteBtnDisabled { opacity: 0.35; cursor: default; }
+
+.badge {
+  background: #6dbf6d;
+  color: #1a2e1a;
+  font-size: 12px;
+  font-weight: 700;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.invisibleHint { color: #6a8f6a; font-size: 13px; font-style: italic; margin: 0; }
+
+/* ─── Overlays carte ─────────────────────────────────────── */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10,20,10,0.93);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 40px 32px;
+  z-index: 2000;
+  text-align: center;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+.overlayEmoji { font-size: 52px; }
+.overlayTitle { color: #fff; font-size: 22px; font-weight: 700; margin: 0; }
+.overlaySub   { color: #8fb98f; font-size: 15px; line-height: 1.5; margin: 0; max-width: 300px; }
+
+/* ─── Note ───────────────────────────────────────────────── */
+.noteInner {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px 20px;
+  width: 100%;
+  max-width: 480px;
+  height: 100%;
+  box-sizing: border-box;
+  color: #e8f5e9;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.noteHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 4px;
+}
+.noteTitle { font-size: 17px; font-weight: 700; color: #e8f5e9; }
+
+.slotsRow { display: flex; align-items: center; gap: 8px; }
+.slot     { width: 28px; height: 6px; border-radius: 3px; }
+.slotFree { background: #6dbf6d; }
+.slotUsed { background: #1e3a1e; }
+.slotsLabel { color: #6a8f6a; font-size: 12px; flex: 1; }
+
+.conceptBox {
+  background: #0a160a;
+  border-left: 2px solid #6dbf6d;
+  padding: 10px 14px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.conceptTitle { color: #6dbf6d; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; }
+.conceptText  { color: #4a6a4a; font-size: 12px; line-height: 1.5; margin: 0; }
+
+.noteInput {
+  background: #141f14;
+  border: 1px solid #2a4a2a;
+  border-radius: 14px;
+  padding: 16px;
+  color: #e8f5e9;
+  font-size: 17px;
+  font-family: inherit;
+  min-height: 110px;
+  resize: none;
+  outline: none;
+  line-height: 1.5;
+  width: 100%;
+  box-sizing: border-box;
+}
+.noteInput::placeholder { color: #2a4a2a; }
+.noteInput:focus  { border-color: #4a7a4a; }
+.noteInputError   { border-color: #8b3a3a; }
+
+.noteFooter { display: flex; justify-content: space-between; align-items: center; }
+.charCount      { color: #3a5a3a; font-size: 12px; }
+.charCountWarn  { color: #c8894d; }
+.noteError      { color: #e87a6d; font-size: 13px; text-align: right; }
+
+.deleteBtn {
+  align-self: center;
+  background: transparent;
+  border: 1px solid #5a2a2a;
+  border-radius: 50px;
+  padding: 10px 24px;
+  color: #c87a6d;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.infoBox { background: #0a160a; border-radius: 10px; padding: 14px; margin-top: auto; }
+.infoTxt { color: #3a5a3a; font-size: 12px; line-height: 1.6; margin: 0; }
