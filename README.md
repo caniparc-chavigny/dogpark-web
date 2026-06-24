@@ -1,73 +1,31 @@
-# React + TypeScript + Vite
+# 🐾 Parc à chiens — Parc de Chavigny (PWA web)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Application web progressive (PWA) gratuite et open source pour les visiteurs du
+parc canin Chavigny, à Boisbriand (Québec). Voir qui est au parc en temps réel
+et laisser de courtes notes — **sans inscription, sans aucune donnée conservée**.
 
-Currently, two official plugins are available:
+🔗 **Application en ligne :** https://dogpark-web.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Fonctionnalités
+- Carte satellite en temps réel des visiteurs présents (géorepérage du parc)
+- Notes éphémères, mode visible / invisible, mode « voir à distance »
+- 3 thèmes (Nature, Sakura, Neutre), bilingue FR / EN
+- **Zéro donnée personnelle** collectée ou conservée (conforme à la Loi 25)
 
-## React Compiler
+## Stack technique
+React + Vite + TypeScript · Leaflet (carte) · Socket.IO (temps réel) · PWA.
+Le serveur temps réel est dans le dépôt [dogpark-server](https://github.com/caniparc-chavigny/dogpark-server).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Développement
+```bash
+npm install
+npm run dev      # serveur de développement
+npm run build    # build de production
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Sécurité & contribution
+- Vulnérabilités : voir [SECURITY.md](SECURITY.md)
+- Contribuer : voir [CONTRIBUTING.md](CONTRIBUTING.md)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Licence
+[MIT](LICENSE) — librement réutilisable, notamment par d'autres municipalités.
